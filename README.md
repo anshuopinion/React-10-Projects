@@ -1,6 +1,7 @@
 # React 10 PRACTICE PROJECT FOR BEGINNERS
 
-![React Course](https://user-images.githubusercontent.com/50476777/236658237-3f141863-a1ed-4860-a847-71ced21fa8a5.png)
+<img width="985" alt="image" src="https://github.com/anshuopinion/React-10-Projects/assets/50476777/fe34ac4c-b9ea-487a-b4f0-98d70954a754">
+
 
 Project that we are going to build in this complete practice course
 
@@ -16,5 +17,23 @@ Project that we are going to build in this complete practice course
 - Project 10 - COMMING SOON
 
 Figma Design URL - https://www.figma.com/file/rephrU2FVgN8MFz6XhnP51/Learn-React-with-10-Projects?type=design&node-id=0-1&t=orp3GQEAXhmtQcgG-0
+
+Post Man URL - https://www.postman.com/restless-escape-453039/workspace/dosomecoding/collection/11759517-ee4b2a9d-85e5-467d-9b5d-8ee6b301f916?action=share&creator=11759517
+
+How to Setup Backend - 
+
+ENV Variables -
+DB = putmonogdburl
+PORT = 9000
+JWT_KEY = putanykeyhere
+FRONTEND_URL = http://localhost:5173
+
+Installing Packages - npm i
+Start Server - npm run dev
+
+
+
+
+
 
 Visit Website For More Details - https://dosomecoding.com
