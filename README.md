@@ -1,6 +1,7 @@
 # React 10 PRACTICE PROJECT FOR BEGINNERS
 
-![React Course](https://user-images.githubusercontent.com/50476777/236658237-3f141863-a1ed-4860-a847-71ced21fa8a5.png)
+<img width="731" alt="image" src="https://github.com/anshuopinion/React-10-Projects/assets/50476777/50094d87-3043-4635-a9cb-1c4feff6e2a3">
+
 
 Project that we are going to build in this complete practice course
 
