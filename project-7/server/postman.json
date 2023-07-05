@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "ee4b2a9d-85e5-467d-9b5d-8ee6b301f916",
+		"name": "Project-7 Auth Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11759517",
+		"_collection_link": "https://www.postman.com/restless-escape-453039/workspace/dosomecoding/collection/11759517-ee4b2a9d-85e5-467d-9b5d-8ee6b301f916?action=share&creator=11759517&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"test@dosomecoding.com\",\n    \"password\":\"anshuraj\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/signin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"test@dosomecoding.com\",\n    \"password\":\"anshuraj\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/signin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Verification Mail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"test@dosomecoding.com\",\n    \"password\":\"anshuraj\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/signin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifyUserMail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\":\"test@dosomecoding.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user/verfiy-user-mail",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"verfiy-user-mail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendForgotPasswordMail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"test@dosomecoding.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user//forgot-password",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifyForgotMail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\":\"test@dosomecoding.com\",\n    \"password\":\"anshuraj\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user//verify-forgot-mail",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"",
+						"verify-forgot-mail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
