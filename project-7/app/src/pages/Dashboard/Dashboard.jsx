@@ -1,11 +1,20 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import DashboardLayout from "../../components/DashboardLayout";
 import PortfolioSection from "./components/PortfolioSection";
 import PriceSection from "./components/PriceSection";
 import Transactions from "./components/Transactions";
 import InfoCard from "./components/InfoCard";
+import { fetchExample } from "../../api/query/exampleQuery";
+import { useQuery } from "react-query";
 
 const Dashboard = ({}) => {
+  const exampleQuery = useQuery({
+    queryKey: ["example"],
+    queryFn: fetchExample,
+  });
+
+  if (exampleQuery.isLoading) return <div>loading.....</div>;
+
   return (
     <DashboardLayout title="Dashboard">
       <Grid

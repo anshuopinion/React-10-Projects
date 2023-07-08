@@ -17,6 +17,8 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
 import Card from "../../../components/Card";
+import { useMutation } from "react-query";
+import { signinUser } from "../../../api/query/userQuery";
 
 const signinValidationSchema = object({
   email: string().email("Email is invalid").required("Email is required"),
@@ -26,6 +28,15 @@ const signinValidationSchema = object({
 });
 
 const Signin = () => {
+  const { mutate, isLoading, error, isError } = useMutation({
+    mutationKey: ["signin"],
+    mutationFn: signinUser,
+  });
+
+  if (isError) {
+    return <Box>{error.message}</Box>;
+  }
+
   return (
     <Container bg="white">
       <Center minH="100vh">
@@ -42,7 +53,7 @@ const Signin = () => {
               password: "",
             }}
             onSubmit={(values) => {
-              console.log(values);
+              mutate(values);
             }}
             validationSchema={signinValidationSchema}
           >
@@ -90,7 +101,7 @@ const Signin = () => {
                     </Link>
                   </HStack>
                   <Box>
-                    <Button w="full" type="submit">
+                    <Button isLoading={isLoading} w="full" type="submit">
                       Login
                     </Button>
                     <Link to="/signup">

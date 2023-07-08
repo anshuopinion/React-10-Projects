@@ -14,11 +14,13 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/ubuntu": "^5.0.3",
+    "axios": "^1.4.0",
     "formik": "^2.4.2",
     "framer-motion": "^10.12.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.13.0",
     "yup": "^1.2.0"
   },
