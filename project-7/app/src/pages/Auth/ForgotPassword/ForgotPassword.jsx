@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../../components/Card";
 import {
   Button,
@@ -11,15 +11,39 @@ import {
   Input,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { Formik, Form, Field } from "formik";
 import { object, string } from "yup";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { sendForgotMail } from "../../../api/query/userQuery";
+import { useMutation } from "react-query";
 const ForgotPassword = () => {
   const forgotValidationSchema = object({
     email: string().email("Email is invalid").required("Email is required"),
   });
+  const [email, setEmail] = useState();
+
+  const toast = useToast();
+  const navigate = useNavigate();
+  const { mutate, isLoading } = useMutation({
+    mutationKey: ["forgot-email"],
+    mutationFn: sendForgotMail,
+    onSettled: (data) => {
+      if (email) {
+        navigate(`/forgot-success/${email}`);
+      }
+    },
+    onError: (error) => {
+      toast({
+        title: "Forgot Error",
+        description: error.message,
+        status: "error",
+      });
+    },
+  });
+
   return (
     <Container>
       <Center minH="100vh">
@@ -39,7 +63,9 @@ const ForgotPassword = () => {
               email: "",
             }}
             onSubmit={(values) => {
-              console.log(values);
+              setEmail((prev) => (prev = values.email));
+
+              mutate({ email: values.email });
             }}
             validationSchema={forgotValidationSchema}
           >
@@ -61,7 +87,7 @@ const ForgotPassword = () => {
                     )}
                   </Field>
 
-                  <Button w="full" type="submit">
+                  <Button isLoading={isLoading} w="full" type="submit">
                     Reset Password
                   </Button>
                 </Stack>
