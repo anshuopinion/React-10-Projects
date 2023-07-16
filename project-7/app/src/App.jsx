@@ -13,50 +13,96 @@ import ResetPasswordSuccess from "./pages/Auth/ResetPasswordSuccess/ResetPasswor
 import ResetPassword from "./pages/Auth/ResetPassword/ResetPassword";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import PrivateRoute from "./components/PrivateRoute";
+import AlreadySignin from "./components/AlreadySignin";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/transactions",
-    element: <TransactionPage />,
+    element: (
+      <PrivateRoute>
+        <TransactionPage />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/support",
-    element: <Support />,
+    element: (
+      <PrivateRoute>
+        <Support />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: (
+      <AlreadySignin>
+        <Signup />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/signin",
-    element: <Signin />,
+    element: (
+      <AlreadySignin>
+        <Signin />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/register-email-verify/:email",
-    element: <RegisterEmailVerify />,
+    element: (
+      <AlreadySignin>
+        <RegisterEmailVerify />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/email-verify/:token",
-    element: <RegisterSuccess />,
+    element: (
+      <AlreadySignin>
+        <RegisterSuccess />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/forgot-password",
-    element: <ForgotPassword />,
+    element: (
+      <AlreadySignin>
+        <ForgotPassword />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/forgot-success/:email",
-    element: <ForgotPasswordSent />,
+    element: (
+      <AlreadySignin>
+        <ForgotPasswordSent />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/forgot-password-verify/:token",
-    element: <ResetPassword />,
+    element: (
+      <AlreadySignin>
+        <ResetPassword />
+      </AlreadySignin>
+    ),
   },
   {
     path: "/reset-success",
-    element: <ResetPasswordSuccess />,
+    element: (
+      <AlreadySignin>
+        <ResetPasswordSuccess />
+      </AlreadySignin>
+    ),
   },
 ]);
 

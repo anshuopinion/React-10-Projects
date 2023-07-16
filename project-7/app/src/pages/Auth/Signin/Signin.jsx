@@ -13,6 +13,7 @@ import {
   HStack,
   Box,
   useToast,
+  useToken,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
@@ -20,7 +21,8 @@ import { object, string } from "yup";
 import Card from "../../../components/Card";
 import { useMutation } from "react-query";
 import { signinUser } from "../../../api/query/userQuery";
-
+import { useCookies } from "react-cookie";
+import useAuth from "../../../../hooks/useAuth";
 const signinValidationSchema = object({
   email: string().email("Email is invalid").required("Email is required"),
   password: string()
@@ -30,10 +32,17 @@ const signinValidationSchema = object({
 
 const Signin = () => {
   const toast = useToast();
+  const { login } = useAuth();
   const { mutate, isLoading } = useMutation({
     mutationKey: ["signin"],
     mutationFn: signinUser,
-    onSuccess: (data) => {},
+    onSuccess: (data) => {
+      const { token } = data;
+      if (token) {
+        console.log(token);
+        login(token);
+      }
+    },
     onError: (error) => {
       toast({
         title: "Signin Error",
@@ -55,8 +64,8 @@ const Signin = () => {
           </Text>
           <Formik
             initialValues={{
-              email: "",
-              password: "",
+              email: "test5@gmail.com",
+              password: "1234567",
             }}
             onSubmit={(values) => {
               mutate(values);
