@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import DashboardLayout from "../../components/DashboardLayout";
 import PortfolioSection from "./components/PortfolioSection";
 import PriceSection from "./components/PriceSection";
