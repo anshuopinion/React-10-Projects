@@ -1,6 +1,6 @@
 # React 10 PRACTICE PROJECT FOR BEGINNERS
 
-<img width="985" alt="image" src="https://github.com/anshuopinion/React-10-Projects/assets/50476777/fe34ac4c-b9ea-487a-b4f0-98d70954a754">
+![React 14](https://github.com/anshuopinion/React-10-Projects/assets/50476777/2439f746-a57c-41a2-a623-d4be7de3df26)
 
 
 Project that we are going to build in this complete practice course
