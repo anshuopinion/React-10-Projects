@@ -79,6 +79,6 @@ const MainContainer = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    
   }
 `;
