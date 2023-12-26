@@ -18,7 +18,7 @@ import { object, string, ref } from "yup";
 import Card from "../../../components/Card";
 import { useMutation } from "react-query";
 import { signupUser } from "../../../api/query/userQuery";
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 const signupValidationSchema = object({
   name: string().required("Name is required"),
@@ -33,7 +33,7 @@ const signupValidationSchema = object({
 });
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
+  const emailRef = useRef("");
   const navigate = useNavigate();
 
   const toast = useToast();
@@ -41,8 +41,8 @@ const Signup = () => {
     mutationKey: ["signup"],
     mutationFn: signupUser,
     onSuccess: (data) => {
-      if (email) {
-        navigate(`/register-email-verify/${email}`);
+      if (emailRef.current!="") {
+        navigate(`/register-email-verify/${emailRef.current}`);
       }
     },
     onError: (error) => {
@@ -73,8 +73,7 @@ const Signup = () => {
               repeatPassword: "",
             }}
             onSubmit={(values) => {
-              setEmail(values.email);
-
+              emailRef.current = values.email;
               mutate({
                 firstName: values.name,
                 lastName: values.surname,
