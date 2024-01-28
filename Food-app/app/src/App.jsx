@@ -19,7 +19,6 @@ function app() {
       setData(datas);
       setLoading(false);
     } catch (error) {
-      alert("error while fetching data");
       console.log(error);
     }
   };
