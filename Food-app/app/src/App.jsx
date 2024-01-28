@@ -1,29 +1,35 @@
 import styled from "styled-components";
 import SearchBar from "material-ui-search-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import App from "./App";
+import Searchresults from "./components/SearchResult/Searchresults";
 
 const BASE_URL = "https://localhost:9000";
 
-function app() {
+export default function app() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const fetchFoodDatas = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(BASE_URL);
-      const datas = await response.json();
-      console.log(datas);
+  useEffect(() => {
+    const fetchFoodDatas = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(BASE_URL);
+        const datas = await response.json();
+        setData(datas);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        setError(error);
+      }
+    };
 
-      setData(datas);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    fetchFoodDatas();
+  }, []);
 
-  fetchFoodDatas();
+  if (error) return <div>Failed to load</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <MainComponent>
@@ -41,13 +47,10 @@ function app() {
           <button>Dinner</button>
         </Menu>
       </TopContainer>
-      <FoodContainer>
-        <FoodCards></FoodCards>
-      </FoodContainer>
+      <Searchresults data={data} />
     </MainComponent>
   );
 }
-export default app;
 
 const MainComponent = styled.div``;
 const TopContainer = styled.section`
@@ -78,6 +81,3 @@ const Menu = styled.div`
     color: white;
   }
 `;
-
-const FoodContainer = styled.main``;
-const FoodCards = styled.div``;
