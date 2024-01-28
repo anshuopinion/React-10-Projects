@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #7fc7d9;
+}
+.button {
+  gap: 14px;
+  justify-content: space-between;
+}
